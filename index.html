@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrietty - Ai | Premium WhatsApp Bot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="arrietty-ai-styles.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Background -->
+    <div class="bg-gradient"></div>
+    <div class="noise"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Live Status Widget -->
+    <div class="live-status">
+        <div class="status-dot online"></div>
+        <span>Bot Online</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">Arrietty</span>
+                    <span class="logo-sub">- Ai</span>
+                </div>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#features">Fitur</a>
+                <a href="#commands">Perintah</a>
+                <a href="#pricing">Harga</a>
+                <a href="#testimonials">Review</a>
+                <a href="#faq">FAQ</a>
+            </div>
+
+            <a href="https://t.me/shoomht" target="_blank" class="nav-cta">
+                <i class="fab fa-telegram"></i>
+                <span>Hubungi Kami</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>1800+ Fitur Premium</span>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="line">Bot WhatsApp</span>
+                <span class="line highlight">Cerdas Masa Depan</span>
+            </h1>
+
+            <p class="hero-desc">
+                Arrietty - Ai menghadirkan pengalaman otomatisasi WhatsApp terbaik dengan kecerdasan buatan terkini. Online 24/7, stabil, dan terus berevolusi.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn-primary">
+                    <span>Lihat Paket</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="https://t.me/shoomht" target="_blank" class="btn-secondary">
+                    <i class="fab fa-telegram"></i>
+                    <span>Order via Telegram</span>
+                </a>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-methods">
+                <span>Metode Pembayaran:</span>
+                <div class="payment-icons">
+                    <div class="payment-icon" title="QRIS">
+                        <i class="fas fa-qrcode"></i>
+                        <span>QRIS</span>
+                    </div>
+                    <div class="payment-icon" title="Dana">
+                        <i class="fas fa-wallet"></i>
+                        <span>Dana</span>
+                    </div>
+                    <div class="payment-icon" title="GoPay">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>GoPay</span>
+                    </div>
+                    <div class="payment-icon" title="OVO">
+                        <i class="fas fa-credit-card"></i>
+                        <span>OVO</span>
+                    </div>
+                    <div class="payment-icon" title="Bank Transfer">
+                        <i class="fas fa-university"></i>
+                        <span>Bank</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-num" data-target="2500">0</span>
+                        <span class="stat-label">Pengguna Aktif</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-num" data-target="99">0</span>
+                        <span class="stat-suffix">%</span>
+                        <span class="stat-label">Uptime</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-num" data-target="4">0</span>
+                        <span class="stat-suffix">.9</span>
+                        <span class="stat-label">Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll untuk eksplorasi</span>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Mengapa Arrietty?</span>
+                <h2>Keunggulan Bot</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>1800+ Fitur</h3>
+                    <p>Fitur lengkap dari AI conversational, image generation, media downloader, games, dan manajemen grup.</p>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Dedicated Server</h3>
+                    <p>Dipisah dari bot publik untuk performa maksimal dan stabilitas tinggi.</p>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Online 24/7</h3>
+                    <p>Bot aktif non-stop siap melayani kapan saja tanpa henti.</p>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Garansi Aktif</h3>
+                    <p>Jika bot di-kick, masa sewa tidak hangus. Bisa pindah grup atau simpan sisa waktu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Showcase -->
+    <section class="commands" id="commands">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Coba Fitur</span>
+                <h2>Demo Perintah Bot</h2>
+                <p>Klik perintah di bawah untuk melihat contoh respons bot</p>
+            </div>
+
+            <div class="commands-container">
+                <div class="command-tabs">
+                    <button class="cmd-tab active" data-cmd="ai">AI Chat</button>
+                    <button class="cmd-tab" data-cmd="image">Buat Gambar</button>
+                    <button class="cmd-tab" data-cmd="download">Download</button>
+                    <button class="cmd-tab" data-cmd="group">Group</button>
+                </div>
+
+                <div class="command-preview">
+                    <div class="phone-frame">
+                        <div class="phone-header">
+                            <div class="phone-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="phone-info">
+                                <span class="phone-name">Arrietty - Ai</span>
+                                <span class="phone-status">Online</span>
+                            </div>
+                        </div>
+                        <div class="phone-chat" id="chatDisplay">
+                            <div class="chat-bubble user">
+                                <p>.ai halo, perkenalkan dirimu</p>
+                                <span class="chat-time">10:30</span>
+                            </div>
+                            <div class="chat-bubble bot">
+                                <p>Halo! 👋 Saya Arrietty, asisten AI pintar Anda. Saya bisa membantu membuat gambar, download media, mengelola grup, dan masih banyak lagi! Ada yang bisa saya bantu?</p>
+                                <span class="chat-time">10:30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header light">
+                <span class="eyebrow">Pilih Paketmu</span>
+                <h2>Harga & Kegunaan</h2>
+            </div>
+
+            <!-- Toggle -->
+            <div class="pricing-tabs">
+                <button class="tab-btn active" data-tab="sewa">
+                    <i class="fas fa-key"></i>
+                    <span>Sewa Bot</span>
+                </button>
+                <button class="tab-btn" data-tab="premium">
+                    <i class="fas fa-crown"></i>
+                    <span>Premium User</span>
+                </button>
+                <div class="tab-indicator"></div>
+            </div>
+
+            <!-- Sewa Content -->
+            <div class="tab-content active" id="sewa-content">
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <div class="card-header">
+                            <h3>30 Hari</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">20.000</span>
+                            </div>
+                            <span class="period">per grup</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Akses 1800+ Fitur</li>
+                            <li><i class="fas fa-check"></i> 1 Grup WhatsApp</li>
+                            <li><i class="fas fa-check"></i> Server Dedicated</li>
+                            <li><i class="fas fa-check"></i> Online 24/7</li>
+                            <li><i class="fas fa-check"></i> User Premium 30 Hari</li>
+                            <li><i class="fas fa-check"></i> Garansi Pindah Grup</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+
+                    <div class="price-card popular">
+                        <div class="badge-popular">POPULER</div>
+                        <div class="card-header">
+                            <h3>3 Bulan</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">45.000</span>
+                            </div>
+                            <span class="period">per grup</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Semua fitur 30 Hari</li>
+                            <li><i class="fas fa-check"></i> Lebih hemat 25%</li>
+                            <li><i class="fas fa-check"></i> User Premium 3 Bulan</li>
+                            <li><i class="fas fa-check"></i> Priority Support</li>
+                            <li><i class="fas fa-check"></i> Garansi Pindah Grup</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn primary" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="card-header">
+                            <h3>1 Tahun</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">110.000</span>
+                            </div>
+                            <span class="period">per grup</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Semua fitur 3 Bulan</li>
+                            <li><i class="fas fa-check"></i> Lebih hemat 54%</li>
+                            <li><i class="fas fa-check"></i> User Premium 1 Tahun</li>
+                            <li><i class="fas fa-check"></i> VIP Support</li>
+                            <li><i class="fas fa-check"></i> Garansi Pindah Grup</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+
+                    <div class="price-card best">
+                        <div class="card-header">
+                            <h3>Permanent</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">205.000</span>
+                            </div>
+                            <span class="period">seumur hidup</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Akses Selamanya</li>
+                            <li><i class="fas fa-check"></i> Bebas pindah grup</li>
+                            <li><i class="fas fa-check"></i> User Premium Permanent</li>
+                            <li><i class="fas fa-check"></i> Lifetime Support</li>
+                            <li><i class="fas fa-check"></i> Update fitur terbaru</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn gold" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <p><strong>Ketentuan Sewa:</strong> Harga berlaku per grup. Jika bot di-kick dari grup, masa sewa tidak hangus. Anda dapat menyimpan sisa masa sewa atau memindahkan bot ke grup lain. Mendapatkan user premium gratis sesuai masa sewa.</p>
+                </div>
+            </div>
+
+            <!-- Premium Content -->
+            <div class="tab-content" id="premium-content">
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <div class="card-header">
+                            <h3>30 Hari</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">10.000</span>
+                            </div>
+                            <span class="period">per user</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Akses 1800+ Fitur</li>
+                            <li><i class="fas fa-check"></i> Chat Pribadi & Grup</li>
+                            <li><i class="fas fa-check"></i> Online 24/7</li>
+                            <li><i class="fas fa-check"></i> Stabil & Responsif</li>
+                            <li><i class="fas fa-check"></i> Update Berkala</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+
+                    <div class="price-card popular">
+                        <div class="badge-popular">BEST VALUE</div>
+                        <div class="card-header">
+                            <h3>3 Bulan</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">25.000</span>
+                            </div>
+                            <span class="period">per user</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Semua fitur 30 Hari</li>
+                            <li><i class="fas fa-check"></i> Lebih hemat 17%</li>
+                            <li><i class="fas fa-check"></i> Akses semua chat</li>
+                            <li><i class="fas fa-check"></i> Priority Support</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn primary" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="card-header">
+                            <h3>6 Bulan</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">45.000</span>
+                            </div>
+                            <span class="period">per user</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Semua fitur 3 Bulan</li>
+                            <li><i class="fas fa-check"></i> Lebih hemat 25%</li>
+                            <li><i class="fas fa-check"></i> Akses semua chat</li>
+                            <li><i class="fas fa-check"></i> VIP Support</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="card-header">
+                            <h3>8 Bulan</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">75.000</span>
+                            </div>
+                            <span class="period">per user</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Semua fitur 6 Bulan</li>
+                            <li><i class="fas fa-check"></i> Lebih hemat 6%</li>
+                            <li><i class="fas fa-check"></i> Akses semua chat</li>
+                            <li><i class="fas fa-check"></i> VIP Support</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="card-header">
+                            <h3>1 Tahun</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">90.000</span>
+                            </div>
+                            <span class="period">per user</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Semua fitur sebelumnya</li>
+                            <li><i class="fas fa-check"></i> Lebih hemat 25%</li>
+                            <li><i class="fas fa-check"></i> Akses semua chat</li>
+                            <li><i class="fas fa-check"></i> VIP Support</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+
+                    <div class="price-card best">
+                        <div class="card-header">
+                            <h3>Permanent</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">150.000</span>
+                            </div>
+                            <span class="period">seumur hidup</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Akses Selamanya</li>
+                            <li><i class="fas fa-check"></i> Semua fitur unlock</li>
+                            <li><i class="fas fa-check"></i> Lifetime Support</li>
+                            <li><i class="fas fa-check"></i> Update fitur terbaru</li>
+                        </ul>
+                        <a href="https://t.me/shoomht" class="order-btn gold" target="_blank">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <p><strong>Ketentuan Premium:</strong> Premium dapat digunakan di chat pribadi maupun grup. Aktivasi premium cepat dan mudah, langsung hubungi owner. Jika terdapat kendala seperti error atau fitur tidak berjalan, owner akan segera melakukan perbaikan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Testimoni</span>
+                <h2>Apa Kata Pengguna?</h2>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Botnya sangat membantu untuk manage grup komunitas saya. Fitur anti-link dan welcome message berjalan dengan lancar. Recommended!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">A</div>
+                            <div class="author-info">
+                                <span class="author-name">Ahmad R.</span>
+                                <span class="author-role">Admin Grup 5k Members</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"AI-nya canggih banget! Bisa jawab pertanyaan dengan context yang tepat. Harga sewanya juga terjangkau untuk fitur sebanyak ini."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">S</div>
+                            <div class="author-info">
+                                <span class="author-name">Siti M.</span>
+                                <span class="author-role">Premium User</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"Ownernya responsif banget kalo ada masalah. Bot pernah error sekali, langsung diperbaiki dalam 10 menit. Garansi bukan kaleng-kaleng!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">B</div>
+                            <div class="author-info">
+                                <span class="author-name">Budi K.</span>
+                                <span class="author-role">Sewa Permanent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Fitur download media dari TikTok dan IG sangat berguna. Ga perlu install app tambahan lagi. Satu bot untuk semua kebutuhan!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">D</div>
+                            <div class="author-info">
+                                <span class="author-name">Dewi L.</span>
+                                <span class="author-role">Content Creator</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-btn prev" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots" id="sliderDots"></div>
+                    <button class="slider-btn next" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Bantuan</span>
+                <h2>Pertanyaan Umum</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Bagaimana cara order bot ini?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Anda bisa order dengan menghubungi owner melalui tombol "Order via Telegram" di atas atau klik link t.me/shoomht. Proses aktivasi biasanya kurang dari 5 menit setelah pembayaran dikonfirmasi.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Apakah bisa pindah grup setelah sewa?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ya! Jika bot di-kick dari grup atau Anda ingin pindah ke grup lain, masa sewa tidak hangus. Sisa waktu bisa dipindahkan ke grup baru atau disimpan untuk nanti.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Metode pembayaran apa saja yang tersedia?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Kami menerima pembayaran via QRIS (semua e-wallet), Dana, GoPay, OVO, ShopeePay, dan transfer bank (BCA, Mandiri, BNI, BRI).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Apakah ada garansi jika bot error?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Tentu! Kami berkomitmen untuk memberikan pengalaman terbaik. Jika ada kendala atau fitur tidak berjalan, owner akan segera memperbaikinya. Kepuasan pengguna adalah prioritas kami.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Apa bedanya Sewa Bot dan Premium User?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Sewa Bot</strong> untuk grup (bot join ke grup Anda), <strong>Premium User</strong> untuk personal (bisa dipakai di chat manapun termasuk grup orang lain). Sewa bot sudah include premium user gratis sesuai masa sewa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Siap Bergabung?</h2>
+                <p>Hubungi owner sekarang untuk aktivasi cepat</p>
+                <a href="https://t.me/shoomht" class="cta-btn" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    <span>t.me/shoomht</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-leaf"></i>
+                        <span>Arrietty - Ai</span>
+                    </div>
+                    <p>Bot WhatsApp pintar dengan 1800+ fitur premium. Online 24/7, stabil, dan selalu berevolusi.</p>
+                    <div class="footer-social">
+                        <a href="https://t.me/shoomht" target="_blank" class="social-link">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Produk</h4>
+                        <a href="#features">Fitur</a>
+                        <a href="#commands">Perintah</a>
+                        <a href="#pricing">Harga</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="https://t.me/shoomht" target="_blank">Telegram</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#testimonials">Testimoni</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arrietty - Ai. All rights reserved.</p>
+                <p class="made-with">Made with <i class="fas fa-heart"></i> in Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat-toggle" id="chatToggle">
+            <i class="fab fa-telegram"></i>
+            <span class="chat-pulse"></span>
+        </button>
+        <div class="chat-popup">
+            <div class="chat-header">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <strong>Arrietty Support</strong>
+                    <span>Online 24/7</span>
+                </div>
+            </div>
+            <div class="chat-body">
+                <p>Halo! 👋 Ada yang bisa kami bantu? Klik tombol di bawah untuk chat langsung dengan owner.</p>
+            </div>
+            <a href="https://t.me/shoomht" target="_blank" class="chat-btn">
+                <i class="fab fa-telegram"></i>
+                Chat di Telegram
+            </a>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+        <svg class="progress-ring" width="44" height="44">
+            <circle class="progress-ring-circle" stroke="rgba(255,193,7,0.3)" stroke-width="3" fill="transparent" r="18" cx="22" cy="22"/>
+            <circle class="progress-ring-progress" stroke="#ffc107" stroke-width="3" fill="transparent" r="18" cx="22" cy="22"/>
+        </svg>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="arrietty-ai-script.js"></script>
+</body>
+</html>
