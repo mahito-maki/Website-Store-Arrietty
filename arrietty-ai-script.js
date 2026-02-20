@@ -1,5 +1,75 @@
 // arrietty-ai-script.js
 
+// Menu Data (1800+ fitur)
+const menuData = [
+    { name: 'absen', icon: 'fa-clipboard-check', count: 5 },
+    { name: 'advanced', icon: 'fa-cogs', count: 2 },
+    { name: 'ai', icon: 'fa-robot', count: 223 },
+    { name: 'anime', icon: 'fa-tv', count: 123 },
+    { name: 'anonymous', icon: 'fa-user-secret', count: 5 },
+    { name: 'asupan', icon: 'fa-video', count: 6 },
+    { name: 'audio', icon: 'fa-music', count: 3 },
+    { name: 'bug', icon: 'fa-bug', count: 2 },
+    { name: 'catatan', icon: 'fa-sticky-note', count: 3 },
+    { name: 'cek', icon: 'fa-check-circle', count: 82 },
+    { name: 'cerpen', icon: 'fa-book', count: 20 },
+    { name: 'channel', icon: 'fa-broadcast-tower', count: 6 },
+    { name: 'code', icon: 'fa-code', count: 2 },
+    { name: 'database', icon: 'fa-database', count: 6 },
+    { name: 'donghua', icon: 'fa-dragon', count: 2 },
+    { name: 'downloader', icon: 'fa-download', count: 119 },
+    { name: 'education', icon: 'fa-graduation-cap', count: 2 },
+    { name: 'enc', icon: 'fa-lock', count: 14 },
+    { name: 'entertainment', icon: 'fa-theater-masks', count: 1 },
+    { name: 'ephoto', icon: 'fa-camera', count: 37 },
+    { name: 'fun', icon: 'fa-laugh-beam', count: 61 },
+    { name: 'game', icon: 'fa-gamepad', count: 54 },
+    { name: 'games', icon: 'fa-dice', count: 1 },
+    { name: 'generator', icon: 'fa-magic', count: 3 },
+    { name: 'genshin', icon: 'fa-fire', count: 3 },
+    { name: 'giveaway', icon: 'fa-gift', count: 6 },
+    { name: 'gpt', icon: 'fa-brain', count: 1 },
+    { name: 'grok', icon: 'fa-comments', count: 1 },
+    { name: 'group', icon: 'fa-users', count: 134 },
+    { name: 'grow', icon: 'fa-seedling', count: 2 },
+    { name: 'image', icon: 'fa-image', count: 8 },
+    { name: 'info', icon: 'fa-info-circle', count: 45 },
+    { name: 'internet', icon: 'fa-globe', count: 58 },
+    { name: 'islami', icon: 'fa-mosque', count: 10 },
+    { name: 'islamic', icon: 'fa-pray', count: 1 },
+    { name: 'jadian', icon: 'fa-heart', count: 1 },
+    { name: 'jkt48', icon: 'fa-star', count: 2 },
+    { name: 'kalender', icon: 'fa-calendar', count: 1 },
+    { name: 'komik', icon: 'fa-book-open', count: 6 },
+    { name: 'life', icon: 'fa-heartbeat', count: 11 },
+    { name: 'main', icon: 'fa-play', count: 24 },
+    { name: 'maker', icon: 'fa-paint-brush', count: 49 },
+    { name: 'melolo', icon: 'fa-cat', count: 3 },
+    { name: 'movie', icon: 'fa-film', count: 3 },
+    { name: 'music', icon: 'fa-headphones', count: 3 },
+    { name: 'nsfw', icon: 'fa-exclamation-triangle', count: 1 },
+    { name: 'owner', icon: 'fa-crown', count: 114 },
+    { name: 'premium', icon: 'fa-gem', count: 115 },
+    { name: 'quotes', icon: 'fa-quote-right', count: 11 },
+    { name: 'random', icon: 'fa-random', count: 1 },
+    { name: 'rpg', icon: 'fa-khanda', count: 128 },
+    { name: 'rpgabsen', icon: 'fa-user-check', count: 1 },
+    { name: 'script', icon: 'fa-file-code', count: 7 },
+    { name: 'search', icon: 'fa-search', count: 22 },
+    { name: 'sewa', icon: 'fa-key', count: 6 },
+    { name: 'sound', icon: 'fa-volume-up', count: 15 },
+    { name: 'stalk', icon: 'fa-user-clock', count: 11 },
+    { name: 'sticker', icon: 'fa-smile', count: 58 },
+    { name: 'storage', icon: 'fa-hdd', count: 8 },
+    { name: 'store', icon: 'fa-shopping-cart', count: 23 },
+    { name: 'suntik', icon: 'fa-syringe', count: 6 },
+    { name: 'text', icon: 'fa-font', count: 1 },
+    { name: 'tools', icon: 'fa-tools', count: 359 },
+    { name: 'uploader', icon: 'fa-cloud-upload-alt', count: 1 },
+    { name: 'web', icon: 'fa-globe-asia', count: 2 },
+    { name: 'xp', icon: 'fa-trophy', count: 12 }
+];
+
 document.addEventListener('DOMContentLoaded', () => {
     // Generate particles
     const particlesContainer = document.getElementById('particles');
@@ -27,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
     
-    // Check saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         html.setAttribute('data-theme', savedTheme);
@@ -38,25 +107,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        
-        // Show toast
         showToast(`Switched to ${newTheme} mode`);
     });
 
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
-    let lastScroll = 0;
-    
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
+        if (window.pageYOffset > 100) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+    });
+
+    // Render Menu
+    const menuGrid = document.getElementById('menuGrid');
+    const menuSearch = document.getElementById('menuSearch');
+    
+    function renderMenu(filter = '') {
+        menuGrid.innerHTML = '';
+        const filtered = menuData.filter(item => 
+            item.name.toLowerCase().includes(filter.toLowerCase())
+        );
         
-        lastScroll = currentScroll;
+        filtered.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'menu-item';
+            div.style.animationDelay = `${index * 0.05}s`;
+            div.innerHTML = `
+                <div class="menu-icon">
+                    <i class="fas ${item.icon}"></i>
+                </div>
+                <div class="menu-info">
+                    <span class="menu-name">Menu ${item.name}</span>
+                    <span class="menu-count">𖦹 Total fitur: ${item.count}</span>
+                </div>
+            `;
+            menuGrid.appendChild(div);
+        });
+    }
+    
+    renderMenu();
+    
+    menuSearch.addEventListener('input', (e) => {
+        renderMenu(e.target.value);
     });
 
     // Tab switching for pricing
@@ -76,55 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     content.classList.add('active');
                 }
             });
-        });
-    });
-
-    // Command Showcase
-    const cmdTabs = document.querySelectorAll('.cmd-tab');
-    const chatDisplay = document.getElementById('chatDisplay');
-    
-    const commandResponses = {
-        ai: {
-            user: '.ai halo, perkenalkan dirimu',
-            bot: 'Halo! 👋 Saya Arrietty, asisten AI pintar Anda. Saya bisa membantu membuat gambar, download media, mengelola grup, dan masih banyak lagi! Ada yang bisa saya bantu?'
-        },
-        image: {
-            user: '.image kucing lucu memakai kacamata',
-            bot: '🎨 Sedang membuat gambar...\n\n✅ Gambar berhasil dibuat!\n\nKucing lucu memakai kacamata hitam keren dengan latar belakang warna-warni. 🐱✨'
-        },
-        download: {
-            user: '.tiktok https://vt.tiktok.com/xxxxx',
-            bot: '⏳ Sedang memproses...\n\n✅ Download berhasil!\n\n📹 Video TikTok\n👤 Username: @user\n❤️ Likes: 125.3K\n💾 Size: 12.5 MB'
-        },
-        group: {
-            user: '.welcome on',
-            bot: '✅ Fitur welcome berhasil diaktifkan!\n\nPengaturan saat ini:\n• Welcome: ON ✓\n• Leave: OFF\n• Antilink: ON ✓\n• Antispam: ON ✓'
-        }
-    };
-    
-    cmdTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            cmdTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            
-            const cmd = tab.getAttribute('data-cmd');
-            const response = commandResponses[cmd];
-            
-            // Animate change
-            chatDisplay.style.opacity = '0';
-            setTimeout(() => {
-                chatDisplay.innerHTML = `
-                    <div class="chat-bubble user">
-                        <p>${response.user}</p>
-                        <span class="chat-time">${new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute:'2-digit'})}</span>
-                    </div>
-                    <div class="chat-bubble bot">
-                        <p>${response.bot}</p>
-                        <span class="chat-time">${new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute:'2-digit'})}</span>
-                    </div>
-                `;
-                chatDisplay.style.opacity = '1';
-            }, 200);
         });
     });
 
@@ -150,10 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCounter();
     };
     
-    const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px'
-    };
+    const observerOptions = { threshold: 0.5 };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -166,49 +208,143 @@ document.addEventListener('DOMContentLoaded', () => {
     
     counters.forEach(counter => observer.observe(counter));
 
-    // Testimonials Slider
-    const track = document.getElementById('testimonialTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const dotsContainer = document.getElementById('sliderDots');
+    // Interactive Rating System
+    const starInput = document.getElementById('starInput');
+    const stars = starInput.querySelectorAll('i');
+    const ratingText = document.getElementById('ratingText');
+    const submitRating = document.getElementById('submitRating');
+    const reviewsList = document.getElementById('reviewsList');
+    const raterName = document.getElementById('raterName');
+    const raterReview = document.getElementById('raterReview');
     
-    let currentSlide = 0;
-    const cards = document.querySelectorAll('.testimonial-card');
-    const totalSlides = cards.length;
+    let currentRating = 0;
+    const ratingTexts = ['Pilih bintang', 'Buruk', 'Cukup', 'Bagus', 'Sangat Bagus', 'Luar Biasa!'];
     
-    // Create dots
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-    }
-    
-    const dots = document.querySelectorAll('.slider-dot');
-    
-    function updateSlider() {
-        const cardWidth = cards[0].offsetWidth + 32; // Including gap
-        track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+    stars.forEach((star, index) => {
+        star.addEventListener('mouseenter', () => {
+            updateStars(index + 1);
+            ratingText.textContent = ratingTexts[index + 1];
+        });
         
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
+        star.addEventListener('click', () => {
+            currentRating = index + 1;
+            updateStars(currentRating);
+            ratingText.textContent = ratingTexts[currentRating];
+        });
+    });
+    
+    starInput.addEventListener('mouseleave', () => {
+        updateStars(currentRating);
+        ratingText.textContent = ratingTexts[currentRating] || 'Pilih bintang';
+    });
+    
+    function updateStars(rating) {
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.remove('far');
+                star.classList.add('fas', 'active');
+            } else {
+                star.classList.remove('fas', 'active');
+                star.classList.add('far');
+            }
         });
     }
     
-    function goToSlide(index) {
-        currentSlide = index;
-        if (currentSlide < 0) currentSlide = totalSlides - 1;
-        if (currentSlide >= totalSlides) currentSlide = 0;
-        updateSlider();
+    // Load saved reviews from localStorage
+    let reviews = JSON.parse(localStorage.getItem('arrietty_reviews')) || [
+        { name: 'Ahmad R.', rating: 5, text: 'Botnya sangat membantu untuk manage grup komunitas saya. Fitur anti-link dan welcome message berjalan dengan lancar. Recommended!', date: '2 hari lalu' },
+        { name: 'Siti M.', rating: 5, text: 'AI-nya canggih banget! Bisa jawab pertanyaan dengan context yang tepat. Harga sewanya juga terjangkau.', date: '5 hari lalu' },
+        { name: 'Budi K.', rating: 5, text: 'Ownernya responsif banget kalo ada masalah. Bot pernah error sekali, langsung diperbaiki dalam 10 menit. Garansi bukan kaleng-kaleng!', date: '1 minggu lalu' }
+    ];
+    
+    function renderReviews() {
+        reviewsList.innerHTML = '';
+        reviews.slice(0, 5).forEach(review => {
+            const card = createReviewCard(review);
+            reviewsList.appendChild(card);
+        });
+        updateRatingStats();
     }
     
-    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+    function createReviewCard(review) {
+        const div = document.createElement('div');
+        div.className = 'review-card';
+        div.innerHTML = `
+            <div class="review-header">
+                <div class="review-author">
+                    <div class="review-avatar">${review.name.charAt(0)}</div>
+                    <div class="review-info">
+                        <strong>${review.name}</strong>
+                        <span>${review.date}</span>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    ${Array(5).fill(0).map((_, i) => 
+                        `<i class="${i < review.rating ? 'fas' : 'far'} fa-star"></i>`
+                    ).join('')}
+                </div>
+            </div>
+            <p class="review-text">${review.text}</p>
+        `;
+        return div;
+    }
     
-    // Auto slide
-    setInterval(() => {
-        goToSlide(currentSlide + 1);
-    }, 5000);
+    function updateRatingStats() {
+        const avg = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+        document.getElementById('avgRating').textContent = avg.toFixed(1);
+        document.getElementById('totalReviews').textContent = `${reviews.length} reviews`;
+        
+        // Update bars
+        const counts = [0, 0, 0, 0, 0];
+        reviews.forEach(r => counts[5 - r.rating]++);
+        const max = Math.max(...counts);
+        
+        document.querySelectorAll('.rating-bar').forEach((bar, index) => {
+            const count = counts[index];
+            const percentage = max > 0 ? (count / max) * 100 : 0;
+            bar.querySelector('.fill').style.width = percentage + '%';
+            bar.querySelector('.count').textContent = count;
+        });
+    }
+    
+    submitRating.addEventListener('click', () => {
+        if (currentRating === 0) {
+            showToast('❌ Pilih rating bintang terlebih dahulu!');
+            return;
+        }
+        
+        if (!raterName.value.trim()) {
+            showToast('❌ Masukkan nama Anda!');
+            return;
+        }
+        
+        const newReview = {
+            name: raterName.value,
+            rating: currentRating,
+            text: raterReview.value || 'Pengguna memberikan rating.',
+            date: 'Baru saja'
+        };
+        
+        reviews.unshift(newReview);
+        localStorage.setItem('arrietty_reviews', JSON.stringify(reviews));
+        
+        const card = createReviewCard(newReview);
+        card.style.animation = 'slideIn 0.5s ease';
+        reviewsList.insertBefore(card, reviewsList.firstChild);
+        
+        updateRatingStats();
+        
+        // Reset form
+        raterName.value = '';
+        raterReview.value = '';
+        currentRating = 0;
+        updateStars(0);
+        ratingText.textContent = 'Pilih bintang';
+        
+        showToast('✅ Terima kasih! Rating berhasil dikirim.');
+    });
+    
+    renderReviews();
 
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
@@ -218,14 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            
-            // Close all
             faqItems.forEach(i => i.classList.remove('active'));
-            
-            // Open clicked if wasn't active
-            if (!isActive) {
-                item.classList.add('active');
-            }
+            if (!isActive) item.classList.add('active');
         });
     });
 
@@ -249,20 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         revealObserver.observe(el);
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
     });
 
     // Back to Top with Progress Ring
@@ -304,7 +420,6 @@ document.addEventListener('DOMContentLoaded', () => {
         chatWidget.classList.toggle('active');
     });
     
-    // Close chat when clicking outside
     document.addEventListener('click', (e) => {
         if (!chatWidget.contains(e.target)) {
             chatWidget.classList.remove('active');
@@ -329,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Button click effects
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .order-btn, .cta-btn, .slider-btn');
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .order-btn, .cta-btn');
     
     buttons.forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -374,15 +489,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Welcome toast
     setTimeout(() => {
-        showToast('👋 Selamat datang! Hubungi kami jika ada pertanyaan.');
-    }, 2000);
-
-    // Performance: Pause animations when tab is hidden
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            document.body.style.animationPlayState = 'paused';
-        } else {
-            document.body.style.animationPlayState = 'running';
-        }
-    });
+        showToast('👋 Selamat datang! Berikan rating Anda di bawah.');
+    }, 3000);
 });
