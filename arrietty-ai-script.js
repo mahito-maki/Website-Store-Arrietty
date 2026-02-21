@@ -70,6 +70,22 @@ const menuData = [
     { name: 'xp', icon: 'fa-trophy', count: 12 }
 ];
 
+// FAQ Toggle Function
+function toggleFaq(button) {
+    const faqItem = button.parentElement;
+    const isActive = faqItem.classList.contains('active');
+    
+    // Close all FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Open clicked item if it wasn't active
+    if (!isActive) {
+        faqItem.classList.add('active');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Generate particles
     const particlesContainer = document.getElementById('particles');
@@ -208,179 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     counters.forEach(counter => observer.observe(counter));
 
-    // Interactive Rating System
-    const starInput = document.getElementById('starInput');
-    const stars = starInput.querySelectorAll('i');
-    const ratingText = document.getElementById('ratingText');
-    const submitRating = document.getElementById('submitRating');
-    const reviewsList = document.getElementById('reviewsList');
-    const raterName = document.getElementById('raterName');
-    const raterReview = document.getElementById('raterReview');
-    
-    let currentRating = 0;
-    const ratingTexts = ['Pilih bintang', 'Buruk', 'Cukup', 'Bagus', 'Sangat Bagus', 'Luar Biasa!'];
-    
-    stars.forEach((star, index) => {
-        star.addEventListener('mouseenter', () => {
-            updateStars(index + 1);
-            ratingText.textContent = ratingTexts[index + 1];
-        });
-        
-        star.addEventListener('click', () => {
-            currentRating = index + 1;
-            updateStars(currentRating);
-            ratingText.textContent = ratingTexts[currentRating];
-        });
-    });
-    
-    starInput.addEventListener('mouseleave', () => {
-        updateStars(currentRating);
-        ratingText.textContent = ratingTexts[currentRating] || 'Pilih bintang';
-    });
-    
-    function updateStars(rating) {
-        stars.forEach((star, index) => {
-            if (index < rating) {
-                star.classList.remove('far');
-                star.classList.add('fas', 'active');
-            } else {
-                star.classList.remove('fas', 'active');
-                star.classList.add('far');
-            }
-        });
-    }
-    
-    // Load saved reviews from localStorage
-    let reviews = JSON.parse(localStorage.getItem('arrietty_reviews')) || [
-        { name: 'Ahmad R.', rating: 5, text: 'Botnya sangat membantu untuk manage grup komunitas saya. Fitur anti-link dan welcome message berjalan dengan lancar. Recommended!', date: '2 hari lalu' },
-        { name: 'Siti M.', rating: 5, text: 'AI-nya canggih banget! Bisa jawab pertanyaan dengan context yang tepat. Harga sewanya juga terjangkau.', date: '5 hari lalu' },
-        { name: 'Budi K.', rating: 5, text: 'Ownernya responsif banget kalo ada masalah. Bot pernah error sekali, langsung diperbaiki dalam 10 menit. Garansi bukan kaleng-kaleng!', date: '1 minggu lalu' }
-    ];
-    
-    function renderReviews() {
-        reviewsList.innerHTML = '';
-        reviews.slice(0, 5).forEach(review => {
-            const card = createReviewCard(review);
-            reviewsList.appendChild(card);
-        });
-        updateRatingStats();
-    }
-    
-    function createReviewCard(review) {
-        const div = document.createElement('div');
-        div.className = 'review-card';
-        div.innerHTML = `
-            <div class="review-header">
-                <div class="review-author">
-                    <div class="review-avatar">${review.name.charAt(0)}</div>
-                    <div class="review-info">
-                        <strong>${review.name}</strong>
-                        <span>${review.date}</span>
-                    </div>
-                </div>
-                <div class="review-stars">
-                    ${Array(5).fill(0).map((_, i) => 
-                        `<i class="${i < review.rating ? 'fas' : 'far'} fa-star"></i>`
-                    ).join('')}
-                </div>
-            </div>
-            <p class="review-text">${review.text}</p>
-        `;
-        return div;
-    }
-    
-    function updateRatingStats() {
-        const avg = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
-        document.getElementById('avgRating').textContent = avg.toFixed(1);
-        document.getElementById('totalReviews').textContent = `${reviews.length} reviews`;
-        
-        // Update bars
-        const counts = [0, 0, 0, 0, 0];
-        reviews.forEach(r => counts[5 - r.rating]++);
-        const max = Math.max(...counts);
-        
-        document.querySelectorAll('.rating-bar').forEach((bar, index) => {
-            const count = counts[index];
-            const percentage = max > 0 ? (count / max) * 100 : 0;
-            bar.querySelector('.fill').style.width = percentage + '%';
-            bar.querySelector('.count').textContent = count;
-        });
-    }
-    
-    submitRating.addEventListener('click', () => {
-        if (currentRating === 0) {
-            showToast('❌ Pilih rating bintang terlebih dahulu!');
-            return;
-        }
-        
-        if (!raterName.value.trim()) {
-            showToast('❌ Masukkan nama Anda!');
-            return;
-        }
-        
-        const newReview = {
-            name: raterName.value,
-            rating: currentRating,
-            text: raterReview.value || 'Pengguna memberikan rating.',
-            date: 'Baru saja'
-        };
-        
-        reviews.unshift(newReview);
-        localStorage.setItem('arrietty_reviews', JSON.stringify(reviews));
-        
-        const card = createReviewCard(newReview);
-        card.style.animation = 'slideIn 0.5s ease';
-        reviewsList.insertBefore(card, reviewsList.firstChild);
-        
-        updateRatingStats();
-        
-        // Reset form
-        raterName.value = '';
-        raterReview.value = '';
-        currentRating = 0;
-        updateStars(0);
-        ratingText.textContent = 'Pilih bintang';
-        
-        showToast('✅ Terima kasih! Rating berhasil dikirim.');
-    });
-    
-    renderReviews();
-
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-            faqItems.forEach(i => i.classList.remove('active'));
-            if (!isActive) item.classList.add('active');
-        });
-    });
-
-    // Smooth reveal on scroll
-    const revealElements = document.querySelectorAll('.feature-card, .price-card, .faq-item');
-    
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 100);
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    revealElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        revealObserver.observe(el);
-    });
-
     // Back to Top with Progress Ring
     const backToTop = document.getElementById('backToTop');
     const progressCircle = document.querySelector('.progress-ring-progress');
@@ -489,6 +332,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Welcome toast
     setTimeout(() => {
-        showToast('👋 Selamat datang! Berikan rating Anda di bawah.');
-    }, 3000);
+        showToast('👋 Selamat datang di Arrietty - Ai!');
+    }, 2000);
 });

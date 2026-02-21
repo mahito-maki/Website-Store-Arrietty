@@ -48,7 +48,6 @@
                 <a href="#features">Fitur</a>
                 <a href="#menu">Menu</a>
                 <a href="#pricing">Harga</a>
-                <a href="#rating">Rating</a>
                 <a href="#faq">FAQ</a>
             </div>
 
@@ -87,7 +86,7 @@
                 </a>
             </div>
 
-            <!-- QRIS Payment Only -->
+            <!-- QRIS Only -->
             <div class="payment-methods">
                 <span>Metode Pembayaran:</span>
                 <div class="qris-display">
@@ -472,99 +471,6 @@
         </div>
     </section>
 
-    <!-- Interactive Rating Section -->
-    <section class="rating-section" id="rating">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Testimoni Pengguna</span>
-                <h2>Rating & Review</h2>
-            </div>
-
-            <div class="rating-container">
-                <!-- Rating Form -->
-                <div class="rating-form">
-                    <h3>Berikan Rating Anda</h3>
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" id="raterName" placeholder="Masukkan nama Anda">
-                    </div>
-                    <div class="form-group">
-                        <label>Rating</label>
-                        <div class="star-input" id="starInput">
-                            <i class="far fa-star" data-rating="1"></i>
-                            <i class="far fa-star" data-rating="2"></i>
-                            <i class="far fa-star" data-rating="3"></i>
-                            <i class="far fa-star" data-rating="4"></i>
-                            <i class="far fa-star" data-rating="5"></i>
-                        </div>
-                        <span class="rating-text" id="ratingText">Pilih bintang</span>
-                    </div>
-                    <div class="form-group">
-                        <label>Review (Opsional)</label>
-                        <textarea id="raterReview" rows="3" placeholder="Bagaimana pengalaman Anda?"></textarea>
-                    </div>
-                    <button class="submit-rating" id="submitRating">
-                        <i class="fas fa-paper-plane"></i>
-                        Kirim Rating
-                    </button>
-                </div>
-
-                <!-- Rating Stats -->
-                <div class="rating-stats">
-                    <div class="average-rating">
-                        <span class="avg-num" id="avgRating">4.9</span>
-                        <div class="avg-stars" id="avgStars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="total-reviews" id="totalReviews">128 reviews</span>
-                    </div>
-                    
-                    <div class="rating-bars">
-                        <div class="rating-bar">
-                            <span>5</span>
-                            <i class="fas fa-star"></i>
-                            <div class="bar"><div class="fill" style="width: 90%"></div></div>
-                            <span class="count">115</span>
-                        </div>
-                        <div class="rating-bar">
-                            <span>4</span>
-                            <i class="fas fa-star"></i>
-                            <div class="bar"><div class="fill" style="width: 8%"></div></div>
-                            <span class="count">10</span>
-                        </div>
-                        <div class="rating-bar">
-                            <span>3</span>
-                            <i class="fas fa-star"></i>
-                            <div class="bar"><div class="fill" style="width: 2%"></div></div>
-                            <span class="count">3</span>
-                        </div>
-                        <div class="rating-bar">
-                            <span>2</span>
-                            <i class="fas fa-star"></i>
-                            <div class="bar"><div class="fill" style="width: 0%"></div></div>
-                            <span class="count">0</span>
-                        </div>
-                        <div class="rating-bar">
-                            <span>1</span>
-                            <i class="fas fa-star"></i>
-                            <div class="bar"><div class="fill" style="width: 0%"></div></div>
-                            <span class="count">0</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Reviews List -->
-            <div class="reviews-list" id="reviewsList">
-                <!-- Reviews will be added here dynamically -->
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container">
@@ -575,52 +481,130 @@
 
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" onclick="toggleFaq(this)">
                         <span>Bagaimana cara order bot ini?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Anda bisa order dengan menghubungi owner melalui tombol "Order via Telegram" di atas atau klik link t.me/shoomht. Proses aktivasi biasanya kurang dari 5 menit setelah pembayaran dikonfirmasi.</p>
+                        <div class="faq-content">
+                            <p>Anda bisa order dengan mudah melalui:</p>
+                            <ol>
+                                <li>Klik tombol "Order via Telegram" di website ini</li>
+                                <li>Atau langsung chat ke <strong>t.me/shoomht</strong></li>
+                                <li>Pilih paket yang diinginkan (Sewa Bot / Premium User)</li>
+                                <li>Lakukan pembayaran via QRIS</li>
+                                <li>Bot akan langsung aktif dalam 1-5 menit!</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" onclick="toggleFaq(this)">
                         <span>Apakah bisa pindah grup setelah sewa?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Ya! Jika bot di-kick dari grup atau Anda ingin pindah ke grup lain, masa sewa tidak hangus. Sisa waktu bisa dipindahkan ke grup baru atau disimpan untuk nanti.</p>
+                        <div class="faq-content">
+                            <p><strong>Bisa!</strong> Keunggulan Arrietty - Ai:</p>
+                            <ul>
+                                <li>✅ Jika bot di-kick, masa sewa <strong>tidak hangus</strong></li>
+                                <li>✅ Bisa pindah ke grup lain kapan saja</li>
+                                <li>✅ Sisa masa sewa bisa disimpan untuk nanti</li>
+                                <li>✅ Proses pindah grup hanya perlu chat owner</li>
+                            </ul>
+                            <p>Garansi ini berlaku untuk semua paket sewa!</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" onclick="toggleFaq(this)">
                         <span>Metode pembayaran apa yang tersedia?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Kami hanya menerima pembayaran via <strong>QRIS</strong> yang support semua e-wallet (Dana, GoPay, OVO, ShopeePay, LinkAja) dan semua bank di Indonesia.</p>
+                        <div class="faq-content">
+                            <p>Kami hanya menerima pembayaran via <strong>QRIS</strong> yang support:</p>
+                            <div class="payment-grid">
+                                <div class="pay-item"><i class="fas fa-wallet"></i> Dana</div>
+                                <div class="pay-item"><i class="fas fa-money-bill-wave"></i> GoPay</div>
+                                <div class="pay-item"><i class="fas fa-credit-card"></i> OVO</div>
+                                <div class="pay-item"><i class="fas fa-shopping-bag"></i> ShopeePay</div>
+                                <div class="pay-item"><i class="fas fa-university"></i> Semua Bank</div>
+                                <div class="pay-item"><i class="fas fa-mobile-alt"></i> LinkAja</div>
+                            </div>
+                            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+                                * Pembayaran QRIS lebih cepat dan mudah, scan langsung dari aplikasi e-wallet Anda!
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" onclick="toggleFaq(this)">
                         <span>Apakah ada garansi jika bot error?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Tentu! Kami berkomitmen untuk memberikan pengalaman terbaik. Jika ada kendala atau fitur tidak berjalan, owner akan segera memperbaikinya. Kepuasan pengguna adalah prioritas kami.</p>
+                        <div class="faq-content">
+                            <p><strong>Tentu ada garansi!</strong> 🛡️</p>
+                            <ul>
+                                <li>✅ Jika bot error, owner akan <strong>segera memperbaiki</strong></li>
+                                <li>✅ Response time: <strong>5-30 menit</strong> (tergantung kondisi)</li>
+                                <li>✅ Update fitur berkala tanpa biaya tambahan</li>
+                                <li>✅ Server online 24/7 dengan uptime 99%</li>
+                            </ul>
+                            <p>Kepuasan pengguna adalah prioritas kami. Jangan ragu untuk report jika ada kendala!</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" onclick="toggleFaq(this)">
                         <span>Apa bedanya Sewa Bot dan Premium User?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p><strong>Sewa Bot</strong> untuk grup (bot join ke grup Anda), <strong>Premium User</strong> untuk personal (bisa dipakai di chat manapun termasuk grup orang lain). Sewa bot sudah include premium user gratis sesuai masa sewa.</p>
+                        <div class="faq-content">
+                            <table class="compare-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fitur</th>
+                                        <th>Sewa Bot</th>
+                                        <th>Premium User</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Akses Fitur</td>
+                                        <td>1800+ Fitur</td>
+                                        <td>1800+ Fitur</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cakupan</td>
+                                        <td>1 Grup WhatsApp</td>
+                                        <td>Semua Chat (Pribadi & Grup)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bot Join Grup</td>
+                                        <td>✅ Ya</td>
+                                        <td>❌ Tidak</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bonus</td>
+                                        <td>Premium User gratis sesuai masa sewa</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cocok untuk</td>
+                                        <td>Admin Grup</td>
+                                        <td>Pengguna Personal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p style="margin-top: 1rem;"><strong>💡 Tips:</strong> Jika Anda admin grup, pilih <strong>Sewa Bot</strong> karena sudah include Premium User gratis!</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -668,7 +652,6 @@
                         <h4>Support</h4>
                         <a href="https://t.me/shoomht" target="_blank">Telegram</a>
                         <a href="#faq">FAQ</a>
-                        <a href="#rating">Rating</a>
                     </div>
                 </div>
             </div>
